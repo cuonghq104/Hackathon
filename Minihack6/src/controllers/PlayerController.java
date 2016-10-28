@@ -41,8 +41,6 @@ public class PlayerController extends SingleControllerWithAnimation implements C
     public void initStack() {
         backMove = new Stack<>();
         backRC = new Stack<>();
-        keyInput = new KeyInput();
-        keyInputListener = new KeyInputListener(keyInput);
     }
 
     //********* COLLISION **************************************************************//
@@ -131,17 +129,15 @@ public class PlayerController extends SingleControllerWithAnimation implements C
     }
 
     public void undo() {
-        if (!isMoving) {
-            if (backMove.size() == 0) {
-                return;
-            }
-            Point pm = backMove.pop();
-            Point prc = backRC.pop();
-            gameObject.setX(pm.x);
-            gameObject.setY(pm.y);
-            gameObject.setRow(prc.x);
-            gameObject.setColumn(prc.y);
+        if (backMove.size() == 0) {
+            return;
         }
+        Point pm = backMove.pop();
+        Point prc = backRC.pop();
+        gameObject.setX(pm.x);
+        gameObject.setY(pm.y);
+        gameObject.setRow(prc.x);
+        gameObject.setColumn(prc.y);
     }
 
     public static final PlayerController instance = new PlayerController(0,0);

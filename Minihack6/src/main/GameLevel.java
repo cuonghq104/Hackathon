@@ -44,6 +44,12 @@ public class GameLevel {
             mummyControllers[i].undo();
         }
     }
+
+    public void restartStackOfEnemy() {
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            mummyControllers[i].initStack();
+        }
+    }
     private void levelSetting() {
         MAP_TILE_SIZE = input.nextInt();
         MAP_TILE_SIZE = input.nextInt();
@@ -157,13 +163,6 @@ public class GameLevel {
     }
 
 
-    public boolean isFinishMoving() {
-        for (int i = 1; i <= numberOfEnemy; i++) {
-            if (mummyControllers[i].isMoving)
-                return false;
-        }
-        return true;
-    }
 
     public boolean hasLose() {
         return PlayerController.instance.getHealth() <= 0;
@@ -184,4 +183,12 @@ public class GameLevel {
     }
 
     public static final GameLevel instance = new GameLevel();
+
+    public boolean isFinishMoving() {
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            if (mummyControllers[i].isMoving)
+                return false;
+        }
+        return true;
+    }
 }

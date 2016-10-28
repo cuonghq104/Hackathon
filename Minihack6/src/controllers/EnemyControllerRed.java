@@ -103,7 +103,7 @@ public class EnemyControllerRed extends EnemyController implements Colliable {
     }
 
     public void undo() {
-        if (backMove.size() < 9)
+        if (backMove.size() == 0)
             return;
         Point pm = new Point();
         for (int i = 0; i < 10; i++) {

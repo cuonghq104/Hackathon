@@ -12,7 +12,7 @@ public class EnemyControllerManager extends ControllerManager {
     }
     private boolean inited = false;
 
-    private boolean finished() {
+    public boolean finished() {
         for (SingleController singleController : singleControllers)
             if (!singleController.finished()) return false;
         return true;

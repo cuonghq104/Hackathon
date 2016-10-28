@@ -99,21 +99,21 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
     }
 
     public void undo() {
-            if (backMove.size() < 9)
-                return;
-            Point pm = new Point();
+        if (backMove.size() <= 0)
+            return;
+        Point pm = new Point();
+        for (int i = 0; i < 10; i++) {
+            pm = backMove.pop();
+        }
+        gameObject.setX(pm.x);
+        gameObject.setY(pm.y);
+        Point prc = new Point();
+        if (backRC.size() > 10) {
             for (int i = 0; i < 10; i++) {
-                pm = backMove.pop();
+                prc = backRC.pop();
             }
-            gameObject.setX(pm.x);
-            gameObject.setY(pm.y);
-            Point prc = new Point();
-            if (backRC.size() >= 10) {
-                for (int i = 0; i < 10; i++) {
-                    prc = backRC.pop();
-                }
-                gameObject.setRow(prc.x);
-                gameObject.setColumn(prc.y);
-            }
+            gameObject.setRow(prc.x);
+            gameObject.setColumn(prc.y);
+        }
     }
 }

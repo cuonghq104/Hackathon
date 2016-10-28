@@ -34,7 +34,6 @@ public class LevelManager {
         }
         return false;
     }
-
     public void run() {
         if (currentLevel==0) {
             currentLevel = 1;
@@ -68,22 +67,20 @@ public class LevelManager {
     public void resetMaze() {
         newLevel();
         GameLevel.instance.createLevel(currentLevel);
-        PlayerController.instance.initStack();
     }
 
     public void restartGame() {
         currentLevel = 1;
         newLevel();
-        PlayerController.instance.initStack();
         GameLevel.instance.createLevel(currentLevel);
+    }
+
+    public boolean isFinishMoving() {
+        return GameLevel.instance.isFinishMoving();
     }
 
     public void undo() {
         GameLevel.instance.undo();
     }
     public static final LevelManager instance = new LevelManager();
-
-    public boolean isFinishMoving() {
-        return GameLevel.instance.isFinishMoving();
-    }
 }
