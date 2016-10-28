@@ -39,20 +39,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOverScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameOverScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="289">
+              <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#562#563#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/LevelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="697">
               <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
               <folding />
             </state>
@@ -199,10 +203,10 @@
         <option value="$PROJECT_DIR$/src/utilities/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/gameScreens/MenuGameScreen.java" />
         <option value="$PROJECT_DIR$/src/main/gameScreens/PlayGameScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java" />
         <option value="$PROJECT_DIR$/src/controllers/PlayerController.java" />
         <option value="$PROJECT_DIR$/src/controllers/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/main/LevelManager.java" />
+        <option value="$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java" />
       </list>
     </option>
   </component>
@@ -1037,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ControllerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1087,9 +1083,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="697">
           <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -42,7 +42,9 @@ public class GameOverScreen extends GameScreen {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            this.screenManager.change(new PlayGameScreen(screenManager), false);
+        }
     }
 
     @Override
