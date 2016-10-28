@@ -54,6 +54,7 @@ public class EnemyControllerRed extends EnemyController implements Colliable {
 
     // Mummy đỏ đi dọc trước ngang sau
     private Point tryDirection(int column0, int row0) {
+        addToStack();
         int column, row, sql = GameConfig.DEFAULT_TILE_LENGTH, best = 1000000;
         Point res = new Point(column0,row0);
         GameObject player = PlayerController.instance.getGameObject();
@@ -95,9 +96,29 @@ public class EnemyControllerRed extends EnemyController implements Colliable {
 
 
     public void run() {
-        if (isMoving) {moveAnimation(); return;}
+        if (isMoving) {
+            moveAnimation(); return;}
         if (PlayGameScreen.playerTurn) return;
         if (moveStep > 0) {moveStep--; move(gameObject);}
+    }
+
+    public void undo() {
+        if (backMove.size() == 0)
+            return;
+        Point pm = new Point();
+        for (int i = 0; i < 10; i++) {
+            pm = backMove.pop();
+        }
+        gameObject.setX(pm.x);
+        gameObject.setY(pm.y);
+        Point prc = new Point();
+        if (backRC.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                prc = backRC.pop();
+            }
+            gameObject.setRow(prc.x);
+            gameObject.setColumn(prc.y);
+        }
     }
 
 }

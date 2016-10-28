@@ -1,5 +1,6 @@
 package main.gameScreens;
 
+import GameButtons.GameButton;
 import controllers.ControllerController;
 import controllers.PlayerController;
 import main.GameConfig;
@@ -83,6 +84,12 @@ public class PlayGameScreen extends GameScreen {
         if (e.getKeyCode() == KeyEvent.VK_C) {
             levelManager.moveToNextLevel();
         }
+        if (e.getKeyCode() == KeyEvent.VK_B) {
+            levelManager.undo();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            levelManager.restartGame();
+        }
     }
 
     @Override
@@ -92,7 +99,19 @@ public class PlayGameScreen extends GameScreen {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+//        if (e.getX())
+//        System.out.println(e.getX() + " " + e.getY());
+//        if (e.getPoint())
+//        System.out.println(e.getX());
+        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY())) {
+            levelManager.resetMaze();
+        }
+        if (GameButton.resetWorldButton.isClick(e.getX(), e.getY())) {
+            levelManager.restartGame();
+        }
+        if (GameButton.undoButton.isClick(e.getX(), e.getY())) {
+            levelManager.undo();
+        }
     }
 
     @Override

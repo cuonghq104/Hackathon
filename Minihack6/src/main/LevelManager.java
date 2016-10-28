@@ -61,5 +61,19 @@ public class LevelManager {
         GameLevel.instance.createLevel(currentLevel);
     }
 
+    public void resetMaze() {
+        newLevel();
+        GameLevel.instance.createLevel(currentLevel);
+    }
+
+    public void restartGame() {
+        currentLevel = 1;
+        newLevel();
+        GameLevel.instance.createLevel(currentLevel);
+    }
+
+    public void undo() {
+        GameLevel.instance.undo();
+    }
     public static final LevelManager instance = new LevelManager();
 }

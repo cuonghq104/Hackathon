@@ -27,7 +27,9 @@ public class GameLevel {
 
     private int exitX = -124443, exitY = 123123;
     private Scanner input;
-    
+
+    private int numberOfEnemy;
+
     public GameLevel() {
         wallDowns = new Point[20];
         wallDown = PlayGameScreen.wallDown;
@@ -36,6 +38,12 @@ public class GameLevel {
         backgroundTile = GameMap.backgroundTile;
     }
 
+    public void undo() {
+        PlayerController.instance.undo();
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            mummyControllers[i].undo();
+        }
+    }
     private void levelSetting() {
         MAP_TILE_SIZE = input.nextInt();
         MAP_TILE_SIZE = input.nextInt();
@@ -111,8 +119,8 @@ public class GameLevel {
         int n, x, y;
         String type;
 
-        n = input.nextInt();
-        for (int i=1;i<=n;i++) {
+        numberOfEnemy = input.nextInt();
+        for (int i=1;i<=numberOfEnemy;i++) {
             x = input.nextInt();
             y = input.nextInt();
             type = input.next();
@@ -124,7 +132,7 @@ public class GameLevel {
                 mummyControllers[i] = EnemyControllerScorpion.create(x,y);
         }
 
-        for (int i=1;i<=n;i++) {
+        for (int i=1;i<=numberOfEnemy;i++) {
             EnemyController mummy = mummyControllers[i];
             mummy.setColumn(mummy.getColumn());
             mummy.setRow(mummy.getRow());
