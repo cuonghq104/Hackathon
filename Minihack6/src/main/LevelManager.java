@@ -67,11 +67,13 @@ public class LevelManager {
     public void resetMaze() {
         newLevel();
         GameLevel.instance.createLevel(currentLevel);
+        PlayerController.instance.initStack();
     }
 
     public void restartGame() {
         currentLevel = 1;
         newLevel();
+        PlayerController.instance.initStack();
         GameLevel.instance.createLevel(currentLevel);
     }
 

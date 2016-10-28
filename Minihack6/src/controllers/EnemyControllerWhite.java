@@ -99,8 +99,7 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
     }
 
     public void undo() {
-        if (!isMoving) {
-            if (backMove.size() == 0)
+            if (backMove.size() < 9)
                 return;
             Point pm = new Point();
             for (int i = 0; i < 10; i++) {
@@ -116,6 +115,5 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
                 gameObject.setRow(prc.x);
                 gameObject.setColumn(prc.y);
             }
-        }
     }
 }

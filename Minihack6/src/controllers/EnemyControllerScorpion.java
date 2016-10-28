@@ -99,8 +99,7 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
     }
 
     public void undo() {
-        if (!isMoving) {
-            if (backMove.size() == 0)
+            if (backMove.size() < 9)
                 return;
             Point pm = new Point();
             for (int i = 0; i < 10; i++) {
@@ -116,6 +115,5 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
                 gameObject.setRow(prc.x);
                 gameObject.setColumn(prc.y);
             }
-        }
     }
 }
