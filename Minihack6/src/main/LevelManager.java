@@ -52,6 +52,7 @@ public class LevelManager {
         if (GameLevel.instance.hasLose()) {
             newLevel();
             GameLevel.instance.createLevel(currentLevel);
+            PlayerController.instance.initStack();
         }
 
         GameLevel.instance.run();
