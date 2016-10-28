@@ -35,6 +35,10 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         unitName = "explorer";
         gameObject.setPowerLevel(1);
         gameObject.setHealth(1);
+        initStack();
+    }
+
+    public void initStack() {
         backMove = new Stack<>();
         backRC = new Stack<>();
     }

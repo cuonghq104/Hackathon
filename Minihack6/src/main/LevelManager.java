@@ -2,6 +2,7 @@ package main;
 
 import controllers.ControllerController;
 import controllers.EnemyControllerManager;
+import controllers.PlayerController;
 import controllers.WallControllerManager;
 import main.gameScreens.PlayGameScreen;
 
@@ -58,6 +59,7 @@ public class LevelManager {
 
     public void moveToNextLevel() {
         newLevel(); nextLevel();
+        PlayerController.instance.initStack();
         GameLevel.instance.createLevel(currentLevel);
     }
 

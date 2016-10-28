@@ -24,6 +24,10 @@ public class EnemyController extends SingleControllerWithAnimation {
         gameObject = new GameObject(column,row,SIZEX,SIZEY);
         gameView = new AnimationView();
         animationView = (AnimationView)gameView;
+        initStack();
+    }
+
+    public void initStack() {
         backMove = new Stack<>();
         backRC = new Stack<>();
     }
