@@ -2,6 +2,7 @@ package main;
 
 import controllers.*;
 import main.gameScreens.PlayGameScreen;
+import models.Player;
 import utilities.Utils;
 
 import java.awt.*;
@@ -39,6 +40,11 @@ public class GameLevel {
     }
 
     public void undo() {
+        if (!PlayerController.instance.finished()) return;
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            if (mummyControllers[i].isMoving) return;
+        }
+
         PlayerController.instance.undo();
         for (int i = 1; i <= numberOfEnemy; i++) {
             mummyControllers[i].undo();

@@ -19,6 +19,7 @@ public class ControllerController {
         CollisionManager.instance.clear();
         PlayerController.instance.setX(-1);
         PlayerController.instance.setY(-1);
+        PlayerController.instance.init();
     }
 
     public void draw(Graphics g) {

@@ -24,8 +24,10 @@ public class PlayerController extends SingleControllerWithAnimation implements C
     public KeyInputListener keyInputListener = new KeyInputListener(keyInput);
     long lastMove = System.currentTimeMillis();
 
-    private Stack<Point> backMove;
-    private Stack<Point> backRC;
+
+    public void init() {
+        initStack();
+    }
 
     private PlayerController(int column, int row) {
         super();
@@ -38,10 +40,6 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         initStack();
     }
 
-    public void initStack() {
-        backMove = new Stack<>();
-        backRC = new Stack<>();
-    }
 
     //********* COLLISION **************************************************************//
     @Override
@@ -72,21 +70,15 @@ public class PlayerController extends SingleControllerWithAnimation implements C
             targetPoint = new Point(x2*sql+sql/2,y2*sql+sql/2);
             targetGrid = new Point(x2,y2);
             PlayGameScreen.playerTurn = false;
-//            System.out.println(targetGrid.x + " " + targetGrid.y);
+            addCurrentState();
             return true;
         }
         return false;
     }
 
-    public void addToStack() {
-        backMove.push(new Point(gameObject.getX(), gameObject.getY()));
-        backRC.push(new Point(gameObject.getRow(), gameObject.getColumn()));
-    }
-
     public void move(GameObject go) {
         int x2 = go.getColumn(), y2 = go.getRow();
         if (keyInput.keyDown) {
-            addToStack();
             y2++;
             if (tryMove(go,x2,y2)) {
                 moveType = MoveType.DOWN;
@@ -95,16 +87,12 @@ public class PlayerController extends SingleControllerWithAnimation implements C
             }
         }
         if (keyInput.keyUp) {
-            addToStack();
             y2--; if (tryMove(go,x2,y2)) {moveType = MoveType.UP; Utils.playMoveSound();return;}}
         if (keyInput.keyRight) {
-            addToStack();
             x2++; if (tryMove(go,x2,y2)) {moveType = MoveType.RIGHT; Utils.playMoveSound();return;}}
         if (keyInput.keyLeft) {
-            addToStack();
             x2--; if (tryMove(go,x2,y2)) {moveType = MoveType.LEFT; Utils.playMoveSound();return;}}
         if (keyInput.keySpace) {
-            addToStack();
             PlayGameScreen.playerTurn = false; lastMove = System.currentTimeMillis();}
     }
 
@@ -126,20 +114,6 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         if (now - lastMove < 150) return;
         move(gameObject);
 
-    }
-
-    public void undo() {
-        if (!isMoving) {
-            if (backMove.size() == 0) {
-                return;
-            }
-            Point pm = backMove.pop();
-            Point prc = backRC.pop();
-            gameObject.setX(pm.x);
-            gameObject.setY(pm.y);
-            gameObject.setRow(prc.x);
-            gameObject.setColumn(prc.y);
-        }
     }
 
     public static final PlayerController instance = new PlayerController(0,0);
