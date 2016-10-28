@@ -94,11 +94,34 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
         if (isMoving) {
             moveAnimation(); return;}
         if (PlayGameScreen.playerTurn) return;
+<<<<<<< HEAD
         if (moveStep > 0) {
             if (moveStep==maxMoveStep) addCurrentState();
             moveStep--;
             move(gameObject);
         }
+=======
+        if (moveStep > 0) {moveStep--; move(gameObject);}
+    }
+
+    public void undo() {
+            if (backMove.size() < 9)
+                return;
+            Point pm = new Point();
+            for (int i = 0; i < 10; i++) {
+                pm = backMove.pop();
+            }
+            gameObject.setX(pm.x);
+            gameObject.setY(pm.y);
+            Point prc = new Point();
+            if (backRC.size() >= 10) {
+                for (int i = 0; i < 10; i++) {
+                    prc = backRC.pop();
+                }
+                gameObject.setRow(prc.x);
+                gameObject.setColumn(prc.y);
+            }
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
     }
 
 }

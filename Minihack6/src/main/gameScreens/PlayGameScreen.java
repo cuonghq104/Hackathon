@@ -81,15 +81,7 @@ public class PlayGameScreen extends GameScreen {
     @Override
     public void keyPressed(KeyEvent e) {
         PlayerController.instance.keyInputListener.keyPressed(e);
-        if (e.getKeyCode() == KeyEvent.VK_C) {
-            levelManager.moveToNextLevel();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_B && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
-            levelManager.undo();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            levelManager.restartGame();
-        }
+
     }
 
     @Override
@@ -103,10 +95,10 @@ public class PlayGameScreen extends GameScreen {
 //        System.out.println(e.getX() + " " + e.getY());
 //        if (e.getPoint())
 //        System.out.println(e.getX());
-        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY())) {
+        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {
             levelManager.resetMaze();
         }
-        if (GameButton.resetWorldButton.isClick(e.getX(), e.getY())) {
+        if (GameButton.resetWorldButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {
             levelManager.restartGame();
         }
         if (GameButton.undoButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {

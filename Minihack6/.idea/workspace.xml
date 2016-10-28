@@ -24,16 +24,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="ScreenManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/gameScreens/ScreenManager.java">
+=======
+      <file leaf-file-name="PlayGameScreen.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/gameScreens/PlayGameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="97" column="148" selection-start-line="97" selection-start-column="148" selection-end-line="97" selection-end-column="148" />
+              <folding>
+                <element signature="e#2562#2563#0" expanded="true" />
+                <element signature="e#2635#2636#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/LevelManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+              <folding>
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
+                <element signature="e#2040#2041#0" expanded="true" />
+                <element signature="e#2098#2099#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/PlayerController.java">
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="PlayerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/PlayerController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,6 +77,37 @@
                 <element signature="e#719#720#0" expanded="true" />
                 <element signature="e#746#747#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="KeyInputListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/KeyInputListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+              <folding>
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#292#293#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyControllerWhite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerWhite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyControllerRed.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerRed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2">
+              <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+              <folding />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
             </state>
           </provider>
         </entry>
@@ -50,8 +115,13 @@
       <file leaf-file-name="EnemyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/EnemyController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="329">
               <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+=======
+            <state relative-caret-position="36">
+              <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
               <folding />
             </state>
           </provider>
@@ -72,6 +142,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/gameScreens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,6 +151,14 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="GameLevel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/GameLevel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+              <folding />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
             </state>
           </provider>
         </entry>
@@ -143,17 +222,26 @@
         <option value="$PROJECT_DIR$/src/utilities/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/gameScreens/MenuGameScreen.java" />
         <option value="$PROJECT_DIR$/src/main/gameScreens/GameOverScreen.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/main/gameScreens/PlayGameScreen.java" />
         <option value="$PROJECT_DIR$/src/controllers/UnitState.java" />
         <option value="$PROJECT_DIR$/src/controllers/EnemyController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/GameLevel.java" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
         <option value="$PROJECT_DIR$/src/controllers/EnemyControllerWhite.java" />
         <option value="$PROJECT_DIR$/src/controllers/EnemyControllerScorpion.java" />
         <option value="$PROJECT_DIR$/src/controllers/EnemyControllerRed.java" />
         <option value="$PROJECT_DIR$/src/controllers/PlayerController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/controllers/ControllerController.java" />
         <option value="$PROJECT_DIR$/src/main/GameLevel.java" />
         <option value="$PROJECT_DIR$/src/controllers/SingleController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/LevelManager.java" />
+        <option value="$PROJECT_DIR$/src/main/gameScreens/PlayGameScreen.java" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
       </list>
     </option>
   </component>
@@ -803,14 +891,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GameChoosingLevel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/GameGame.java" />
-    <entry file="file://$PROJECT_DIR$/src/controllers/SingleControllerWithAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/movement/Move.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -932,6 +1012,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/controllers/UnitState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -941,6 +1022,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerWhite.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/gameScreens/ScreenManager.java">
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
@@ -972,16 +1056,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/controllers/ControllerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/GameLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/LevelManager.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerWhite.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="218">
           <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
           <folding>
@@ -1006,18 +1098,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+=======
+        <state relative-caret-position="65">
+          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerScorpion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/GameLevel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/controllers/EnemyControllerRed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/gameScreens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1037,6 +1149,64 @@
             <element signature="e#2535#2536#0" expanded="true" />
             <element signature="e#2902#2903#0" expanded="true" />
             <element signature="e#2943#2944#0" expanded="true" />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/utilities/KeyInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/KeyInputListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/SingleControllerWithAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/PlayerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#2040#2041#0" expanded="true" />
+            <element signature="e#2098#2099#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameScreens/PlayGameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="97" column="148" selection-start-line="97" selection-start-column="148" selection-end-line="97" selection-end-column="148" />
+          <folding>
+            <element signature="e#2562#2563#0" expanded="true" />
+            <element signature="e#2635#2636#0" expanded="true" />
           </folding>
         </state>
       </provider>

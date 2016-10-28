@@ -40,6 +40,15 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         initStack();
     }
 
+<<<<<<< HEAD
+=======
+    public void initStack() {
+        backMove = new Stack<>();
+        backRC = new Stack<>();
+        keyInput = new KeyInput();
+        keyInputListener = new KeyInputListener(keyInput);
+    }
+>>>>>>> 6e3c2c0a03d0a759a665f6e73530daff7002a93c
 
     //********* COLLISION **************************************************************//
     @Override
