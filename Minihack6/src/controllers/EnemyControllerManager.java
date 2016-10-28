@@ -28,7 +28,7 @@ public class EnemyControllerManager extends ControllerManager {
 
         for (SingleController singleController : singleControllers)
             singleController.run();
-        remove();
+       // remove();
 
         if (finished()) {
             PlayGameScreen.playerTurn = true;

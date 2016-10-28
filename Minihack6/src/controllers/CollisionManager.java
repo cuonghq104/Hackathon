@@ -61,7 +61,7 @@ public class CollisionManager  {
                 else col2.onCollide(col1);
             }
 
-        remove();
+       // remove();
     }
 
     public static final CollisionManager instance = new CollisionManager();

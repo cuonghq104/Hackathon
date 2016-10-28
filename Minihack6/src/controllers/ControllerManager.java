@@ -54,6 +54,6 @@ public class ControllerManager implements BaseController {
     public void run() {
         for (SingleController singleController : singleControllers)
             singleController.run();
-        remove();
+       // remove();
     }
 }
