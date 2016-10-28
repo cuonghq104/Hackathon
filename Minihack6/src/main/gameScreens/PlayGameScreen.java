@@ -84,7 +84,7 @@ public class PlayGameScreen extends GameScreen {
         if (e.getKeyCode() == KeyEvent.VK_C) {
             levelManager.moveToNextLevel();
         }
-        if (e.getKeyCode() == KeyEvent.VK_B) {
+        if (e.getKeyCode() == KeyEvent.VK_B && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
             levelManager.undo();
         }
         if (e.getKeyCode() == KeyEvent.VK_A) {
@@ -109,7 +109,7 @@ public class PlayGameScreen extends GameScreen {
         if (GameButton.resetWorldButton.isClick(e.getX(), e.getY())) {
             levelManager.restartGame();
         }
-        if (GameButton.undoButton.isClick(e.getX(), e.getY())) {
+        if (GameButton.undoButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {
             levelManager.undo();
         }
     }

@@ -157,6 +157,13 @@ public class GameLevel {
     }
 
 
+    public boolean isFinishMoving() {
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            if (mummyControllers[i].isMoving)
+                return false;
+        }
+        return true;
+    }
 
     public boolean hasLose() {
         return PlayerController.instance.getHealth() <= 0;

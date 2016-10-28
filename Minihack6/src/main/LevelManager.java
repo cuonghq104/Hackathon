@@ -34,6 +34,7 @@ public class LevelManager {
         }
         return false;
     }
+
     public void run() {
         if (currentLevel==0) {
             currentLevel = 1;
@@ -78,4 +79,8 @@ public class LevelManager {
         GameLevel.instance.undo();
     }
     public static final LevelManager instance = new LevelManager();
+
+    public boolean isFinishMoving() {
+        return GameLevel.instance.isFinishMoving();
+    }
 }
