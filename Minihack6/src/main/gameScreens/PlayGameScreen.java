@@ -153,7 +153,7 @@ public class PlayGameScreen extends GameScreen implements Serializable {
 //        System.out.println(e.getX());
         if (GameButton.resetMazeButton.isClick(e.getX(), e.getY())) {
             long now = System.currentTimeMillis();
-            if (now - lastRestart >= 1000) {
+            if (now - lastRestart >= 700) {
                 levelManager.resetMaze();
                 lastRestart = now;
             }
@@ -163,6 +163,9 @@ public class PlayGameScreen extends GameScreen implements Serializable {
         }
         if (GameButton.undoButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {
             levelManager.undo();
+        }
+        if (GameButton.exitGameButton.isClick(e.getX(), e.getY())) {
+            this.screenManager.change(new MenuGameScreen(screenManager), false);
         }
     }
 

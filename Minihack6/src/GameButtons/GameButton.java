@@ -22,6 +22,10 @@ public class GameButton {
 
     public static GameButton nextTutorialButton = new GameButton(298, 411, 45, 45);
 
+    public static GameButton editorButton = new GameButton(30, 357, 80, 80);
+
+    public static GameButton exitGameButton = new GameButton(13, 428, 120, 33);
+
     public boolean isClick(int x, int y) {
 //        System.out.println(x);
 //        System.out.println(y);

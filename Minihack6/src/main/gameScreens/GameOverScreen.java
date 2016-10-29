@@ -41,7 +41,7 @@ public class GameOverScreen extends GameScreen {
 //        }
 //        highScores[++nScore] = (System.currentTimeMillis() - GameWindow.firstGame)/1000;
 //        for (int i=1;i<nScore;i++)
-//            for (int j=i+1;j<=nScore;j++) if (highScores[i] < highScores[j]) {
+//            for (int j=i+1;j<=nScore;j++) if (highScores[i] > highScores[j]) {
 //                long x = highScores[i];
 //                highScores[i] = highScores[j];
 //                highScores[j] = x;

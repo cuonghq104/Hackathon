@@ -94,8 +94,8 @@ public class GameObject implements Serializable {
     public GameObject(int column, int row,int width,int height) {
         setColumn(column);
         setRow(row);
-        width = GameConfig.TILE_LENGTH * 9 / 10;
-        height = GameConfig.TILE_LENGTH * 9 / 10;
+        width = GameConfig.TILE_LENGTH;
+        height = GameConfig.TILE_LENGTH;
         setWidth(width);
         setHeight(height);
     }

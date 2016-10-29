@@ -1,7 +1,6 @@
 package main.gameScreens;
 
-import controllers.SingleController;
-import main.EditorGameScreen;
+import GameButtons.GameButton;
 import main.GameConfig;
 import utilities.Utils;
 
@@ -69,7 +68,9 @@ public class MenuGameScreen extends GameScreen{
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (GameButton.editorButton.isClick(e.getX(), e.getY())) {
+            this.screenManager.change(new EditorGameScreen(screenManager), false);
+        }
     }
 
     @Override

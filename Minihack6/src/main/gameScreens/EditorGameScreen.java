@@ -1,8 +1,12 @@
-package main;
+package main.gameScreens;
 
+import GameButtons.GameButton;
 import controllers.*;
 import controllers.mummies.*;
 import javafx.stage.Screen;
+import main.GameConfig;
+import main.GameMap;
+import main.GameWindow;
 import main.gameScreens.GameScreen;
 import main.gameScreens.PlayGameScreen;
 import main.gameScreens.ScreenManager;
@@ -26,6 +30,7 @@ public class EditorGameScreen extends GameScreen {
     public int currentColumn, currentRow;
     private int exitX, exitY, nWallDown = 0, nWallRight = 0, nMummy = 0;
     private boolean isRunning = false;
+    private Image mousePointer = Utils.getImage("power-up.png");
 
     public EditorGameScreen(ScreenManager screenManager) {
         super(screenManager);
@@ -41,14 +46,22 @@ public class EditorGameScreen extends GameScreen {
         nMummy = 0;
     }
 
+    public void drawPointer(Graphics g) {
+        int x,y, sql = GameConfig.TILE_LENGTH;
+        x =  currentColumn * sql;
+        y = currentRow * sql;
+        g.drawImage(mousePointer,x,y,sql,sql,null);
+    }
+
     @Override
     public void update(Graphics g) {
-        g.drawImage(background,0,0,GameConfig.BACKGROUND_WIDTH,GameConfig.BACKGROUND_HEIGHT,null);
+        g.drawImage(background,0,0, GameConfig.BACKGROUND_WIDTH,GameConfig.BACKGROUND_HEIGHT,null);
 
         BufferedImage gameMap = new BufferedImage(GameConfig.MAP_SIZE, GameConfig.MAP_SIZE,
                 BufferedImage.TYPE_INT_ARGB); // transparent
         Graphics gameMapGraphics = gameMap.getGraphics();
         GameMap.instance.draw(gameMapGraphics);
+        drawPointer(gameMapGraphics);
         ControllerController.instance.draw(gameMapGraphics);
         drawExit(g);
 
@@ -201,6 +214,13 @@ public class EditorGameScreen extends GameScreen {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (GameButton.exitGameButton.isClick(e.getX(), e.getY())) {
+            this.screenManager.change(new MenuGameScreen(screenManager), false);
+        }
+        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY())) {
+            init();
+        }
+
         Point location = e.getLocationOnScreen();
         if (location.x < MAP_LEFT || location.y < MAP_TOP ||
                 location.x > MAP_LEFT + GameConfig.MAP_SIZE || location.y > MAP_TOP + GameConfig.MAP_SIZE) {

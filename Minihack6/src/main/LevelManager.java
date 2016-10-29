@@ -11,7 +11,7 @@ import main.gameScreens.PlayGameScreen;
 public class LevelManager {
 
     private int currentLevel = 1;
-    public static final int MAX_LEVEL = 19;
+    public static final int MAX_LEVEL = 22;
 
     public LevelManager() {
         currentLevel = -1;
@@ -28,7 +28,7 @@ public class LevelManager {
     }
 
     public boolean isVictory() {
-        if (currentLevel == MAX_LEVEL-1) {
+        if (currentLevel == MAX_LEVEL) {
             return true;
         }
         return false;

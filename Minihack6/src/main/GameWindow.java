@@ -3,6 +3,7 @@ package main;
 import controllers.*;
 import main.GameConfig;
 import main.gameScreens.GameScreen;
+import main.gameScreens.HighScoreGameScreen;
 import main.gameScreens.MenuGameScreen;
 import main.gameScreens.ScreenManager;
 import models.Player;
@@ -31,7 +32,7 @@ public class GameWindow extends Frame implements Runnable, ScreenManager {
     BufferedImage backBufferImage = new BufferedImage(BACKGROUND_WIDTH,BACKGROUND_HEIGHT+40,
             BufferedImage.TYPE_INT_ARGB);
 
-    private GameScreen currentGameScreen = new MenuGameScreen(this);//EditorGameScreen(this);//MenuGameScreen(this);
+    private GameScreen currentGameScreen = new MenuGameScreen(this);
     private Stack<GameScreen> screenStack = new Stack<>();
     public static long firstGame = 0;
     public static boolean editing = false;
