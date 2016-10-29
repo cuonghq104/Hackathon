@@ -45,11 +45,13 @@ public class AnimationView implements GameView {
     }
 
     public void drawImage(Graphics g, GameObject go) {
+        if (!go.isAlive()) return;
         currentImage %= nImage;
         g.drawImage(sheet[currentImage],go.getCornerX(),go.getCornerY(),go.getWidth(),go.getHeight(),null);
     }
 
     public void drawImage(Graphics g, GameObject go, boolean stayingStillAlwaysTrue) {
+        if (!go.isAlive()) return;
         g.drawImage(sheet[0],go.getCornerX(),go.getCornerY(),go.getWidth(),go.getHeight(),null);
     }
 

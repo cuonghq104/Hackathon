@@ -2,10 +2,8 @@ package main.gameScreens;
 
 import GameButtons.GameButton;
 import controllers.ControllerController;
-import controllers.EnemyControllerManager;
 import controllers.PlayerController;
 import main.GameConfig;
-import main.GameLevel;
 import main.GameMap;
 import main.LevelManager;
 import utilities.Utils;
@@ -80,48 +78,49 @@ public class PlayGameScreen extends GameScreen {
 
     }
 
+    long lastUndo = 0;
     @Override
     public void keyPressed(KeyEvent e) {
         PlayerController.instance.keyInputListener.keyPressed(e);
         if (e.getKeyCode() == KeyEvent.VK_C) {
             levelManager.moveToNextLevel();
         }
-        if (e.getKeyCode() == KeyEvent.VK_B) {
-            levelManager.undo();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            if (!EnemyControllerManager.instance.finished()) {
-                return;
-            } else {
-                levelManager.restartGame();
+        if (e.getKeyCode() == KeyEvent.VK_B && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
+            long now = System.currentTimeMillis();
+            if (now - lastUndo >= 500) {
+                levelManager.undo();
+                lastUndo = now;
             }
         }
-
+//        if (e.getKeyCode() == KeyEvent.VK_A) {
+//            levelManager.restartGame();
+//        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-            PlayerController.instance.keyInputListener.keyReleased(e);
+        PlayerController.instance.keyInputListener.keyReleased(e);
     }
 
+    long lastRestart = 0;
     @Override
     public void mouseClicked(MouseEvent e) {
 //        if (e.getX())
 //        System.out.println(e.getX() + " " + e.getY());
 //        if (e.getPoint())
-//        System.out.println(e.getX())
-        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
-            levelManager.resetMaze();
-            PlayerController.instance.initStack();
-            GameLevel.instance.restartStackOfEnemy();
+//        System.out.println(e.getX());
+        if (GameButton.resetMazeButton.isClick(e.getX(), e.getY())) {
+            long now = System.currentTimeMillis();
+            if (now - lastRestart >= 1000) {
+                levelManager.resetMaze();
+                lastRestart = now;
+            }
         }
-        if (GameButton.resetWorldButton.isClick(e.getX(), e.getY())&& !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
+        if (GameButton.resetWorldButton.isClick(e.getX(), e.getY())) {
             levelManager.restartGame();
-            PlayerController.instance.initStack();
-            GameLevel.instance.restartStackOfEnemy();
         }
-        if (GameButton.undoButton.isClick(e.getX(), e.getY())&& !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving()) {
-                levelManager.undo();
+        if (GameButton.undoButton.isClick(e.getX(), e.getY()) && !PlayerController.instance.isMoving && LevelManager.instance.isFinishMoving() ) {
+            levelManager.undo();
         }
     }
 

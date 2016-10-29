@@ -19,9 +19,10 @@ public class ControllerController {
         CollisionManager.instance.clear();
         PlayerController.instance.setX(-1);
         PlayerController.instance.setY(-1);
+        PlayerController.instance.init();
     }
 
-    public void draw(Graphics g) {
+    public synchronized void draw(Graphics g) {
 //        BufferedImage map = new BufferedImage(360,360,BufferedImage.TYPE_INT_RGB);
 //        Graphics mapGraphics = map.getGraphics();
         PlayerController.instance.draw(g);
@@ -30,7 +31,7 @@ public class ControllerController {
         //g.drawImage(map,60,60,360,360,null);
     }
 
-    public void run() {
+    public synchronized void run() {
         PlayerController.instance.run();
         EnemyControllerManager.instance.run();
         CollisionManager.instance.run();

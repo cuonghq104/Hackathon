@@ -12,9 +12,6 @@ import java.util.Stack;
  */
 public class EnemyController extends SingleControllerWithAnimation {
 
-    Stack<Point> backMove;
-    Stack<Point> backRC;
-
     private static int SIZEX = 50, SIZEY = 50;
     protected int moveDirections = 4;
     protected int maxMoveStep = 0;
@@ -27,37 +24,14 @@ public class EnemyController extends SingleControllerWithAnimation {
         initStack();
     }
 
-    public void initStack() {
-        backMove = new Stack<>();
-        backRC = new Stack<>();
-    }
 
-    public void addToStack() {
-        backMove.push(new Point(gameObject.getX(), gameObject.getY()));
-        backRC.push(new Point(gameObject.getRow(), gameObject.getColumn()));
-    }
-
-    public void draw(Graphics g) {
+    public synchronized void draw(Graphics g) {
         gameView.drawImage(g,gameObject);
     }
 
-    public void run() {
+    public synchronized void run() {
         if (PlayGameScreen.playerTurn) return;
         move(gameObject);
     }
 
-    public void undo() {
-//        for (int i = 0; i < )
-        Point pm = backMove.pop();
-        gameObject.setX(pm.x);
-        gameObject.setY(pm.y);
-        System.out.println(backRC.size());
-        Point prc = backRC.pop();
-
-        for (int i = 0; i < 9; i++) {
-            prc = backRC.pop();
-        }
-        gameObject.setRow(prc.x);
-        gameObject.setColumn(prc.y);
-    }
 }

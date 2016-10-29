@@ -7,7 +7,7 @@ import models.GameObject;
  */
 public class Move {
 
-    public static final int moveSpeed = 5;
+    public static final int moveSpeed = 3;
 
     public void move(GameObject go) {
 

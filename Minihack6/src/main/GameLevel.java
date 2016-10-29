@@ -2,6 +2,7 @@ package main;
 
 import controllers.*;
 import main.gameScreens.PlayGameScreen;
+import models.Player;
 import utilities.Utils;
 
 import java.awt.*;
@@ -39,15 +40,14 @@ public class GameLevel {
     }
 
     public void undo() {
+        if (!PlayerController.instance.finished()) return;
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            if (mummyControllers[i].isMoving) return;
+        }
+
         PlayerController.instance.undo();
         for (int i = 1; i <= numberOfEnemy; i++) {
             mummyControllers[i].undo();
-        }
-    }
-
-    public void restartStackOfEnemy() {
-        for (int i = 1; i <= numberOfEnemy; i++) {
-            mummyControllers[i].initStack();
         }
     }
     private void levelSetting() {
@@ -58,7 +58,7 @@ public class GameLevel {
         GameConfig.TILE_LENGTH = 360 / MAP_TILE_SIZE;
     }
 
-    private void createPlayer() {
+    private synchronized void createPlayer() {
         int x,y;
         x = input.nextInt();
         y = input.nextInt();
@@ -121,7 +121,7 @@ public class GameLevel {
         }
     }
 
-    private void createMummy() {
+    private synchronized void createMummy() {
         int n, x, y;
         String type;
 
@@ -147,6 +147,7 @@ public class GameLevel {
     }
 
     public void createLevel(int level) {
+        ControllerController.instance.init();
         try {
             this.input = new Scanner(new File("map/" + level + ".txt"));
         } catch (FileNotFoundException e) {
@@ -163,6 +164,13 @@ public class GameLevel {
     }
 
 
+    public boolean isFinishMoving() {
+        for (int i = 1; i <= numberOfEnemy; i++) {
+            if (mummyControllers[i].isMoving)
+                return false;
+        }
+        return true;
+    }
 
     public boolean hasLose() {
         return PlayerController.instance.getHealth() <= 0;
@@ -183,12 +191,4 @@ public class GameLevel {
     }
 
     public static final GameLevel instance = new GameLevel();
-
-    public boolean isFinishMoving() {
-        for (int i = 1; i <= numberOfEnemy; i++) {
-            if (mummyControllers[i].isMoving)
-                return false;
-        }
-        return true;
-    }
 }

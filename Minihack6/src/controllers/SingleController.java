@@ -5,6 +5,7 @@ import models.GameObject;
 import views.GameView;
 
 import java.awt.*;
+import java.util.Stack;
 
 /**
  * Created by Le Huy Duc on 19/10/2016.
@@ -19,6 +20,10 @@ public class SingleController implements BaseController {
 
     public boolean isMoving = false;
     public boolean isFighting = false;
+
+    protected Stack<UnitState> backState;
+    protected boolean firstMoveAfterPlayer = false;
+
 
 
     //**********  GETTER  ******************************************************************
@@ -87,12 +92,7 @@ public class SingleController implements BaseController {
 
     //**********  CONSTRUCTOR ******************************************************************
     public SingleController() {
-
-    }
-
-    public SingleController(GameObject go, GameView gv) {
-        gameObject = go;
-        gameView = gv;
+        initStack();
     }
 
     public void init() {
@@ -119,4 +119,25 @@ public class SingleController implements BaseController {
     public void run() {
 
     }
+
+
+    //**********  UNDO  ******************************************************************
+
+    public void initStack() {
+        backState = new Stack<>();
+    }
+
+    public void addCurrentState() {
+        backState.push(new UnitState(this));
+    }
+
+    public void undo() {
+        if (backState.size()==0) return;
+        UnitState previousState = backState.pop();
+        this.setColumn(previousState.column);
+        this.setRow(previousState.row);
+        this.setHealth(previousState.health);
+        this.setIsAlive(previousState.isAlive);
+    }
+
 }
