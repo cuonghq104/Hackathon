@@ -1,16 +1,15 @@
 package controllers;
 
-import controllers.traps.TrapController;
+import controllers.mummies.EnemyControllerManager;
 import controllers.traps.TrapControllerManager;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.nio.Buffer;
+import java.io.Serializable;
 
 /**
  * Created by Le Huy Duc on 23/10/2016.
  */
-public class ControllerController {
+public class ControllerController implements Serializable {
 
     private ControllerController() {
 

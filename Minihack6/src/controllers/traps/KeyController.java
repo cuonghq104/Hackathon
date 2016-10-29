@@ -16,13 +16,17 @@ public class KeyController extends TrapController implements Colliable {
     private int lastPlayerColumn;
     private int lastPlayerRow;
 
-    public KeyController(int column, int row, int wall_column, int wall_row, WallType wallType) {
+    public KeyController(int column, int row, int wall_column, int wall_row, WallType wallType, boolean isClose) {
         super(column,row);
-        blackWallController = new BlackWallController(wall_column, wall_row, wallType);
+        blackWallController = new BlackWallController(wall_column, wall_row, wallType,isClose);
         gameObject = new Key(column,row);
-        gameView.setImage("plane2.png");
+        gameView.setImage("star.gif");
         gameObject.setPowerLevel(1000000);
         gameObject.setHealth(1000000);
+    }
+
+    public BlackWallController getBlackWallController() {
+        return blackWallController;
     }
 
 

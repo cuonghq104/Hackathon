@@ -20,6 +20,8 @@ public class GameButton {
 
     public static GameButton undoButton = new GameButton(13, 157, 120, 33);
 
+    public static GameButton nextTutorialButton = new GameButton(298, 411, 45, 45);
+
     public boolean isClick(int x, int y) {
 //        System.out.println(x);
 //        System.out.println(y);

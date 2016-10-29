@@ -1,4 +1,4 @@
-package controllers;
+package controllers.mummies;
 
 /**
  * Created by Le Huy Duc on 23/10/2016.

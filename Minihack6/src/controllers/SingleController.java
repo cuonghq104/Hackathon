@@ -6,12 +6,13 @@ import models.GameObject;
 import views.GameView;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Stack;
 
 /**
  * Created by Le Huy Duc on 19/10/2016.
  */
-public class SingleController implements BaseController {
+public class SingleController implements BaseController, Serializable {
 
     protected GameObject gameObject;
     protected GameView gameView;

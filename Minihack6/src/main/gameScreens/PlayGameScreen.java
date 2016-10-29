@@ -3,6 +3,9 @@ package main.gameScreens;
 import GameButtons.GameButton;
 import controllers.ControllerController;
 import controllers.PlayerController;
+import controllers.SaveController;
+import controllers.SingleController;
+import controllers.mummies.EnemyControllerManager;
 import main.GameConfig;
 import main.GameMap;
 import main.LevelManager;
@@ -12,11 +15,13 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by Le Huy Duc on 26/10/2016.
  */
-public class PlayGameScreen extends GameScreen {
+public class PlayGameScreen extends GameScreen implements Serializable {
 
     public static boolean[][] wallDown = new boolean[30][30];
     public static boolean[][] wallRight = new boolean[30][30];
@@ -28,6 +33,7 @@ public class PlayGameScreen extends GameScreen {
     public static int exitX = 0, exitY = 0; // chứa tọa độ trên bản đồ game
     public static int screenExitX = 0, screenExitY = 0; // TỌA DỘ EXIT TRÊN MÀN HÌNH
     public static Image exitImage;
+    public boolean pausing = false;
 
 
     public PlayGameScreen(ScreenManager screenManager) {
@@ -60,6 +66,8 @@ public class PlayGameScreen extends GameScreen {
         drawExit(g);
         ControllerController.instance.draw(gameMapGraphics);
 
+        if (pausing) PauseGameScreen.instance.update(gameMapGraphics);
+
         g.drawImage(gameMap,MAP_LEFT,MAP_TOP,GameConfig.MAP_SIZE,GameConfig.MAP_SIZE,null);
     }
 
@@ -69,7 +77,9 @@ public class PlayGameScreen extends GameScreen {
             this.screenManager.change(new GameOverScreen(screenManager), false);
         }
         if (levelManager==null) init();
+        if (pausing) return;
         levelManager.run();
+
         ControllerController.instance.run();
     }
 
@@ -78,7 +88,7 @@ public class PlayGameScreen extends GameScreen {
 
     }
 
-    long lastUndo = 0;
+    long lastUndo = 0, lastSave = 0, lastLoad = 0, lastPause = 0;
     @Override
     public void keyPressed(KeyEvent e) {
         PlayerController.instance.keyInputListener.keyPressed(e);
@@ -92,6 +102,38 @@ public class PlayGameScreen extends GameScreen {
                 lastUndo = now;
             }
         }
+        if (e.getKeyCode() == KeyEvent.VK_F8) {
+            if (PlayerController.instance.isMoving) return;
+            for (int i=0;i<EnemyControllerManager.instance.size();i++) {
+                SingleController singleController = EnemyControllerManager.instance.get(i);
+                if (singleController.isMoving) return;
+            }
+
+            long now = System.currentTimeMillis();
+            if (now - lastSave <= 1000) return;
+            SaveController.instance.saveGame();
+            lastSave = now;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_F9) {
+            if (PlayerController.instance.isMoving) return;
+            for (int i=0;i<EnemyControllerManager.instance.size();i++) {
+                SingleController singleController = EnemyControllerManager.instance.get(i);
+                if (singleController.isMoving) return;
+            }
+            long now = System.currentTimeMillis();
+            if (now - lastLoad <= 1000) return;
+            lastLoad = now;
+            SaveController.instance.loadGame();
+            System.out.println("bb");
+        }
+
+        if (e.getKeyCode()==KeyEvent.VK_P) {
+            long now = System.currentTimeMillis();
+            if (now - lastPause < 500) return;
+            lastPause = now;
+            pausing = !pausing;
+        }
+
 //        if (e.getKeyCode() == KeyEvent.VK_A) {
 //            levelManager.restartGame();
 //        }

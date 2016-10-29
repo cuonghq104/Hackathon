@@ -2,10 +2,12 @@ package controllers;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 
+import java.io.Serializable;
+
 /**
  * Created by Le Huy Duc on 29/10/2016.
  */
-public class UnitState {
+public class UnitState implements Serializable {
     public int column, row;
     public int health;
     public boolean isAlive;

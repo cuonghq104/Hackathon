@@ -1,9 +1,9 @@
 package main;
 
 import controllers.*;
+import controllers.mummies.*;
 import controllers.traps.*;
 import main.gameScreens.PlayGameScreen;
-import models.Player;
 import utilities.Utils;
 
 import java.awt.*;
@@ -25,7 +25,7 @@ public class GameLevel {
     protected Image[][] backgroundTile;
     protected EnemyController[] mummyControllers = new EnemyController[20];
     protected TrapController[] trapControllers = new TrapController[20];
-    public BlackWallController myBlackWall = new BlackWallController(0,0,WallType.DOWN);
+    public BlackWallController myBlackWall = new BlackWallController(0,0,WallType.DOWN,true);
 
     public static final int[] dx = {0,0,0,1,-1,-1,1,-1,1};
     public static final int[] dy = {0,1,-1,0,0,-1,-1,1,1};
@@ -92,6 +92,11 @@ public class GameLevel {
 
         BufferedImage exitSprite = Utils.getImage("stairs6.gif");
         PlayGameScreen.exitImage = exitSprite.getSubimage(x,y,55,55);
+    }
+
+    private void initWall() {
+        for (int i=0;i<30;i++)
+            for (int j=0;j<30;j++) wallDown[i][j] = wallRight[i][j] = false;
     }
 
     private void createWallDown() {
@@ -180,7 +185,8 @@ public class GameLevel {
 
     public void createKey() {
         int n, x=0, y=0, wallX=0, wallY=0;
-        String type="";
+        boolean isClose = false;
+        String type="", tt = "";
         n = input.nextInt();
         for (int i=1;i<=n;i++) {
             x = input.nextInt();
@@ -188,16 +194,42 @@ public class GameLevel {
             wallX = input.nextInt();
             wallY = input.nextInt();
             type = input.next();
+            tt = input.next();
+            if (tt.equals("CLOSE")) isClose = true; else isClose = false;
 
-            TrapController key = new KeyController(x,y,wallX,wallY,WallType.valueOf(type));
+            TrapController key = new KeyController(x,y,wallX,wallY,WallType.valueOf(type),isClose);
             TrapControllerManager.instance.add(key);
         }
     }
 
     public void createLevel(int level) {
         ControllerController.instance.init();
+        initWall();
+
         try {
             this.input = new Scanner(new File("map/" + level + ".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (level==1) GameWindow.firstGame = System.currentTimeMillis();
+
+        GameMap.instance.init();
+        levelSetting();
+        createPlayer();
+        createExit();
+        createWallDown();
+        createWallRight();
+        createMummy();
+        createTrap();
+        createKey();
+    }
+
+    public void createLevel(String fullLink) {
+        ControllerController.instance.init();
+
+        try {
+            this.input = new Scanner(new File(fullLink));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

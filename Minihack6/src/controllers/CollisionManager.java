@@ -3,16 +3,17 @@ package controllers;
 import models.GameObject;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Vector;
 
 /**
  * Created by Le Huy Duc on 26/10/2016.
  */
-public class CollisionManager  {
+public class CollisionManager implements Serializable {
     protected Vector<Colliable> pool;
 
-    private CollisionManager() {
+    public CollisionManager() {
         pool = new Vector<>();
     }
 
@@ -64,5 +65,5 @@ public class CollisionManager  {
        // remove();
     }
 
-    public static final CollisionManager instance = new CollisionManager();
+    public static CollisionManager instance = new CollisionManager();
 }

@@ -2,6 +2,7 @@ package controllers;
 
 import controllers.movement.Move;
 import controllers.movement.MoveType;
+import controllers.mummies.EnemyControllerWhite;
 import main.GameConfig;
 import views.AnimationView;
 

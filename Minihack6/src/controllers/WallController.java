@@ -9,7 +9,7 @@ import views.ImageView;
  */
 public class WallController extends SingleController {
 
-    protected WallType wallType;
+    public WallType wallType;
 
     public void checkDefault() {
         gameView.setImage("block6.png");

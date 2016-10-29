@@ -1,11 +1,13 @@
 package controllers;
 
+import java.io.Serializable;
+
 /**
  * Created by Le Huy Duc on 21/10/2016.
  */
-public class WallControllerManager extends ControllerManager {
+public class WallControllerManager extends ControllerManager implements Serializable{
 
-    private WallControllerManager() {
+    public WallControllerManager() {
         super();
     }
 
@@ -13,5 +15,5 @@ public class WallControllerManager extends ControllerManager {
         return (WallController)singleControllers.get(i);
     }
 
-    public static final WallControllerManager instance = new WallControllerManager();
+    public static WallControllerManager instance = new WallControllerManager();
 }

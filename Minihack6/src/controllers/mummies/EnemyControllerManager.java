@@ -1,13 +1,18 @@
-package controllers;
+package controllers.mummies;
 
+import controllers.ControllerManager;
+import controllers.PlayerController;
+import controllers.SingleController;
 import main.gameScreens.PlayGameScreen;
+
+import java.io.Serializable;
 
 /**
  * Created by Le Huy Duc on 21/10/2016.
  */
-public class EnemyControllerManager extends ControllerManager {
+public class EnemyControllerManager extends ControllerManager implements Serializable{
 
-    private EnemyControllerManager() {
+    public EnemyControllerManager() {
         super();
     }
     private boolean inited = false;
@@ -16,6 +21,10 @@ public class EnemyControllerManager extends ControllerManager {
         for (SingleController singleController : singleControllers)
             if (!singleController.finished()) return false;
         return true;
+    }
+
+    public EnemyController get(int i) {
+        return (EnemyController)singleControllers.get(i);
     }
 
     public synchronized void run() {

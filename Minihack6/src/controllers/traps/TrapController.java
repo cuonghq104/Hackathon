@@ -1,11 +1,9 @@
 package controllers.traps;
 
 import controllers.Colliable;
-import controllers.EnemyController;
 import controllers.PlayerController;
 import controllers.SingleController;
 import models.GameObject;
-import models.Player;
 import models.Trap;
 import views.ImageView;
 

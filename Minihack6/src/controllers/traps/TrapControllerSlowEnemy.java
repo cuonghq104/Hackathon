@@ -1,9 +1,7 @@
 package controllers.traps;
 
 import controllers.Colliable;
-import controllers.EnemyController;
-import controllers.PlayerController;
-import javafx.util.Pair;
+import controllers.mummies.EnemyController;
 import models.GameObject;
 import models.Trap;
 import views.ImageView;

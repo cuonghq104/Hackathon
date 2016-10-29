@@ -1,5 +1,7 @@
-package controllers;
+package controllers.mummies;
 
+import controllers.Colliable;
+import controllers.PlayerController;
 import main.GameConfig;
 import main.gameScreens.PlayGameScreen;
 import models.GameObject;
@@ -54,7 +56,7 @@ public class EnemyControllerRed extends EnemyController implements Colliable {
         }
     }
 
-    // Mummy đỏ đi dọc trước ngang sau
+    // mummies đỏ đi dọc trước ngang sau
     private Point tryDirection(int column0, int row0) {
         int column, row, sql = GameConfig.DEFAULT_TILE_LENGTH, best = 1000000;
         Point res = new Point(column0,row0);
@@ -105,11 +107,11 @@ public class EnemyControllerRed extends EnemyController implements Colliable {
         if (firstTime) {
             moveStep = maxMoveStep;
             firstTime = false;
+            checkEffect();
             addState(currentStateWithEffect());
         }
 
         if (moveStep > 0) {
-            checkEffect();
             moveStep--;
             move(gameObject);}
     }

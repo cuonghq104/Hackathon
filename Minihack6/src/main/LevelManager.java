@@ -1,9 +1,8 @@
 package main;
 
 import controllers.ControllerController;
-import controllers.EnemyControllerManager;
 import controllers.PlayerController;
-import controllers.WallControllerManager;
+import main.gameScreens.GameScreen;
 import main.gameScreens.PlayGameScreen;
 
 /**
@@ -15,7 +14,7 @@ public class LevelManager {
     public static final int MAX_LEVEL = 10;
 
     public LevelManager() {
-        currentLevel = 0;
+        currentLevel = -1;
     }
 
     private void newLevel() {
@@ -29,22 +28,29 @@ public class LevelManager {
     }
 
     public boolean isVictory() {
-        if (currentLevel == MAX_LEVEL) {
+        if (currentLevel == MAX_LEVEL-1) {
             return true;
         }
         return false;
     }
 
     public void run() {
-        if (currentLevel==0) {
-            currentLevel = 1;
+        if (currentLevel==-1) {
             newLevel();
-            GameLevel.instance.createLevel(1);
+            if (GameWindow.editing) {
+                currentLevel = 0;
+                GameLevel.instance.createLevel(0);
+                GameWindow.editing = false;
+            }
+            else {
+                currentLevel = 1;
+                GameLevel.instance.createLevel(1);
+            }
         }
 
         if (GameLevel.instance.hasWon()) {
             if (currentLevel == MAX_LEVEL) {
-
+                return;
             }
             moveToNextLevel();
         }

@@ -1,13 +1,14 @@
 package controllers;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Vector;
 
 /**
  * Created by Le Huy Duc on 21/10/2016.
  */
-public class ControllerManager implements BaseController {
+public class ControllerManager implements BaseController, Serializable {
 
     protected Vector<SingleController> singleControllers;
 
@@ -44,6 +45,9 @@ public class ControllerManager implements BaseController {
         singleControllers.clear();
     }
 
+    public SingleController get(int i) {
+        return singleControllers.get(i);
+    }
 
     public synchronized void draw(Graphics g) {
         synchronized (singleControllers) {

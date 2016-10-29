@@ -9,19 +9,20 @@ import java.util.Stack;
  */
 public class BlackWallController extends WallController {
 
-    private boolean isClose;
+    public boolean isClose;
     Stack<Boolean> myStack = new Stack<>();
 
-    public BlackWallController(int column, int row, WallType wallType) {
+    public BlackWallController(int column, int row, WallType wallType,boolean closed) {
         super(column, row, wallType);
-        isClose = true;
-        gameView.setImage("blackwall.gif");
+        isClose = closed;
+        if (isClose) gameView.setImage("blackwall.gif");
+        else gameView.setImage("fadedblackwall.png");
         WallControllerManager.instance.add(this);
 
         if (wallType == WallType.DOWN) {
-            PlayGameScreen.wallDown[getColumn()][getRow()] = true;
+            PlayGameScreen.wallDown[getColumn()][getRow()] = isClose;
         } else {
-            PlayGameScreen.wallRight[getColumn()][getRow()] = true;
+            PlayGameScreen.wallRight[getColumn()][getRow()] = isClose;
         }
     }
 

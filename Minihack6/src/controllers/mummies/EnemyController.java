@@ -1,5 +1,8 @@
-package controllers;
+package controllers.mummies;
 
+import controllers.Effectable;
+import controllers.SingleControllerWithAnimation;
+import controllers.UnitState;
 import main.gameScreens.PlayGameScreen;
 import models.GameObject;
 import views.AnimationView;

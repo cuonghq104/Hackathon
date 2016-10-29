@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.movement.MoveType;
+import controllers.mummies.EnemyController;
 import main.GameConfig;
 import main.gameScreens.PlayGameScreen;
 import models.GameObject;
@@ -11,7 +12,6 @@ import utilities.Utils;
 import views.AnimationView;
 
 import java.awt.*;
-import java.util.Stack;
 
 /**
  * Created by Le Huy Duc on 19/10/2016.
@@ -31,7 +31,11 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         lastMove = System.currentTimeMillis();
     }
 
-    private PlayerController(int column, int row) {
+    public PlayerController() {
+
+    }
+
+    public PlayerController(int column, int row) {
         super();
         gameObject = new Player(column,row);
         gameView = new AnimationView();
@@ -121,5 +125,5 @@ public class PlayerController extends SingleControllerWithAnimation implements C
 
     }
 
-    public static final PlayerController instance = new PlayerController(0,0);
+    public static PlayerController instance = new PlayerController(0,0);
 }

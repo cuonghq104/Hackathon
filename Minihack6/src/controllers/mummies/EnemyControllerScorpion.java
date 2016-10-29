@@ -1,5 +1,7 @@
-package controllers;
+package controllers.mummies;
 
+import controllers.Colliable;
+import controllers.PlayerController;
 import main.GameConfig;
 import main.gameScreens.PlayGameScreen;
 import models.GameObject;
@@ -99,11 +101,11 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
         if (firstTime) {
             moveStep = maxMoveStep;
             firstTime = false;
+            checkEffect();
             addState(currentStateWithEffect());
         }
 
         if (moveStep > 0) {
-            checkEffect();
             moveStep--;
             move(gameObject);
         }

@@ -2,10 +2,12 @@ package models;
 
 import main.GameConfig;
 
+import java.io.Serializable;
+
 /**
  * Created by Le Huy Duc on 19/10/2016.
  */
-public class GameObject {
+public class GameObject implements Serializable {
     public static final int TILE_LENGTH = GameConfig.TILE_LENGTH;
     protected int x = 0, y = 0;
     protected int row = 0, column = 0;

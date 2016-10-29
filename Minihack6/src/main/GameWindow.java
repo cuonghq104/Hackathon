@@ -6,6 +6,7 @@ import main.gameScreens.GameScreen;
 import main.gameScreens.MenuGameScreen;
 import main.gameScreens.ScreenManager;
 import models.Player;
+import utilities.Audio;
 import utilities.Utils;
 
 import javax.imageio.ImageIO;
@@ -30,8 +31,12 @@ public class GameWindow extends Frame implements Runnable, ScreenManager {
     BufferedImage backBufferImage = new BufferedImage(BACKGROUND_WIDTH,BACKGROUND_HEIGHT+40,
             BufferedImage.TYPE_INT_ARGB);
 
-    private GameScreen currentGameScreen = new MenuGameScreen(this);
+    private GameScreen currentGameScreen = new MenuGameScreen(this);//EditorGameScreen(this);//MenuGameScreen(this);
     private Stack<GameScreen> screenStack = new Stack<>();
+    public static long firstGame = 0;
+    public static boolean editing = false;
+
+    public boolean musicOn = true;
 
     public GameWindow() {
         this.setVisible(true);
@@ -84,6 +89,16 @@ public class GameWindow extends Frame implements Runnable, ScreenManager {
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_M) {
+                    if (musicOn) {
+                        Audio.setMasterOutputVolume(0);
+                        musicOn = false;
+                        System.out.println("aa");
+                    } else {
+                        Audio.setMasterOutputVolume((float) 0);
+                        musicOn = true;
+                    }
+                }
             }
 
             @Override
@@ -118,6 +133,7 @@ public class GameWindow extends Frame implements Runnable, ScreenManager {
                 Thread.sleep(25);
 
                 currentGameScreen.run();
+
                 repaint();
             } catch (InterruptedException e) {
                 e.printStackTrace();

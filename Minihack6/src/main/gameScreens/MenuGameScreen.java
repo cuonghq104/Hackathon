@@ -1,6 +1,7 @@
 package main.gameScreens;
 
 import controllers.SingleController;
+import main.EditorGameScreen;
 import main.GameConfig;
 import utilities.Utils;
 
@@ -43,10 +44,18 @@ public class MenuGameScreen extends GameScreen{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_T) {
+            this.screenManager.change(new GameTutorialScreen(screenManager), false);
+        } else if (e.getKeyCode()==KeyEvent.VK_E) {
+            this.screenManager.change(new EditorGameScreen(screenManager),false);
+        }
+        else    {
 //        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            this.screenManager.change(new PlayGameScreen(screenManager),true);
+                this.screenManager.change(new PlayGameScreen(screenManager), true);
 //        }
-    }
+            }
+        }
+
 
     @Override
     public void keyReleased(KeyEvent e) {
