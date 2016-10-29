@@ -45,15 +45,19 @@ public class ControllerManager implements BaseController {
     }
 
 
-    public void draw(Graphics g) {
-        for (SingleController singleController : singleControllers)
-            singleController.draw(g);
+    public synchronized void draw(Graphics g) {
+        synchronized (singleControllers) {
+            for (SingleController singleController : singleControllers)
+                singleController.draw(g);
+        }
     }
 
     //Sau mỗi lần run sẽ kiểm tra xem xóa phần tử đc chưa, nếu đc thì xóa
-    public void run() {
-        for (SingleController singleController : singleControllers)
-            singleController.run();
+    public synchronized void run() {
+        synchronized (singleControllers) {
+            for (SingleController singleController : singleControllers)
+                singleController.run();
+        }
       //  remove();
     }
 }

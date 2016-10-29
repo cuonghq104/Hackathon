@@ -179,17 +179,19 @@ public class GameLevel {
     }
 
     public void createKey() {
-        int n, x, y, wallX, wallY;
-        String type;
+        int n, x=0, y=0, wallX=0, wallY=0;
+        String type="";
         n = input.nextInt();
-        x = input.nextInt();
-        y = input.nextInt();
-        wallX = input.nextInt();
-        wallY = input.nextInt();
-        type = input.next();
+        for (int i=1;i<=n;i++) {
+            x = input.nextInt();
+            y = input.nextInt();
+            wallX = input.nextInt();
+            wallY = input.nextInt();
+            type = input.next();
 
-        TrapController key = new KeyController(x,y,wallX,wallY,WallType.valueOf(type));
-        TrapControllerManager.instance.add(key);
+            TrapController key = new KeyController(x,y,wallX,wallY,WallType.valueOf(type));
+            TrapControllerManager.instance.add(key);
+        }
     }
 
     public void createLevel(int level) {

@@ -20,6 +20,7 @@ public class ControllerController {
         EnemyControllerManager.instance.clear();
         WallControllerManager.instance.clear();
         CollisionManager.instance.clear();
+        TrapControllerManager.instance.clear();
         PlayerController.instance.setX(-1);
         PlayerController.instance.setY(-1);
         PlayerController.instance.init();
