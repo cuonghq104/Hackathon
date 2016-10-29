@@ -20,7 +20,7 @@ public class KeyController extends TrapController implements Colliable {
         super(column,row);
         blackWallController = new BlackWallController(wall_column, wall_row, wallType,isClose);
         gameObject = new Key(column,row);
-        gameView.setImage("star.gif");
+        gameView.setImage("sliderankh.png");
         gameObject.setPowerLevel(1000000);
         gameObject.setHealth(1000000);
     }

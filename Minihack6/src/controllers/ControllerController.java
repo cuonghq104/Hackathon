@@ -26,9 +26,9 @@ public class ControllerController implements Serializable {
     }
 
     public synchronized void draw(Graphics g) {
-        PlayerController.instance.draw(g);
         WallControllerManager.instance.draw(g);
         TrapControllerManager.instance.draw(g);
+        PlayerController.instance.draw(g);
         EnemyControllerManager.instance.draw(g);
     }
 

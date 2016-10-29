@@ -11,7 +11,7 @@ import main.gameScreens.PlayGameScreen;
 public class LevelManager {
 
     private int currentLevel = 1;
-    public static final int MAX_LEVEL = 10;
+    public static final int MAX_LEVEL = 19;
 
     public LevelManager() {
         currentLevel = -1;

@@ -71,6 +71,7 @@ public class EditorGameScreen extends GameScreen {
     }
 
     public void drawExit(Graphics g) {
+        if (exitX==0 && exitY==0) return;
         int x,y, sql = GameConfig.TILE_LENGTH;
         x = MAP_LEFT + exitX * sql;
         y = MAP_TOP + exitY * sql;
