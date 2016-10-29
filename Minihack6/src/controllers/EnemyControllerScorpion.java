@@ -19,6 +19,7 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
         super(column,row);
         unitName = "scorpion";
         moveDirections = 4;
+        defaultMaxMoveStep = 1;
         maxMoveStep = 1;
         gameObject.setPowerLevel(1);
         gameObject.setHealth(1);
@@ -94,8 +95,15 @@ public class EnemyControllerScorpion extends EnemyController implements Colliabl
         if (isMoving) {
             moveAnimation(); return;}
         if (PlayGameScreen.playerTurn) return;
+
+        if (firstTime) {
+            moveStep = maxMoveStep;
+            firstTime = false;
+            addState(currentStateWithEffect());
+        }
+
         if (moveStep > 0) {
-            if (moveStep==maxMoveStep) addCurrentState();
+            checkEffect();
             moveStep--;
             move(gameObject);
         }

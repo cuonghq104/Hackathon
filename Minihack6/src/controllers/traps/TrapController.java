@@ -1,5 +1,9 @@
-package controllers;
+package controllers.traps;
 
+import controllers.Colliable;
+import controllers.EnemyController;
+import controllers.PlayerController;
+import controllers.SingleController;
 import models.GameObject;
 import models.Player;
 import models.Trap;
@@ -14,7 +18,7 @@ public class TrapController extends SingleController implements Colliable {
         super();
         gameObject = new Trap(column,row);
         gameView = new ImageView("trap6.gif");
-        gameObject.setPowerLevel(0);
+        gameObject.setPowerLevel(100000);
         gameObject.setHealth(1000000);
     }
 

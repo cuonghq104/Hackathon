@@ -23,6 +23,7 @@ public class PlayerController extends SingleControllerWithAnimation implements C
     private KeyInput keyInput = new KeyInput();
     public KeyInputListener keyInputListener = new KeyInputListener(keyInput);
     long lastMove = System.currentTimeMillis();
+    public int lastColumn, lastRow;
 
 
     public void init() {
@@ -66,6 +67,7 @@ public class PlayerController extends SingleControllerWithAnimation implements C
         if (Utils.canMoveTo(x1,y1,x2,y2)) {
             lastMove = System.currentTimeMillis();
             isMoving = true;
+
             animationView.firstImage = System.currentTimeMillis();
             beginPoint = new Point(go.getX(), go.getY());
             targetPoint = new Point(x2*sql+sql/2,y2*sql+sql/2);
@@ -109,6 +111,8 @@ public class PlayerController extends SingleControllerWithAnimation implements C
 
     boolean moveTurn = true;
     public void run() {
+        lastColumn = getColumn();
+        lastRow = getRow();
         if (isMoving) {moveAnimation(); return;}
         if (!PlayGameScreen.playerTurn) return;
         long now = System.currentTimeMillis();

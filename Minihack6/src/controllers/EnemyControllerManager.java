@@ -29,7 +29,6 @@ public class EnemyControllerManager extends ControllerManager {
 
             for (SingleController singleController : singleControllers)
                 singleController.run();
-            System.out.println(singleControllers.size());
             // remove();
 
             if (finished()) {

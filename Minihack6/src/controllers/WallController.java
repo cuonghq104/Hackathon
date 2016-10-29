@@ -9,7 +9,7 @@ import views.ImageView;
  */
 public class WallController extends SingleController {
 
-    private WallType wallType;
+    protected WallType wallType;
 
     public void checkDefault() {
         gameView.setImage("block6.png");
@@ -33,7 +33,7 @@ public class WallController extends SingleController {
 
     }
 
-    private WallController(int column, int row, WallType wallType) {
+    protected WallController(int column, int row, WallType wallType) {
         gameObject = new Wall(0,0);
         gameView = new ImageView("block6.png");
         setColumn(column);

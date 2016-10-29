@@ -9,5 +9,9 @@ public class WallControllerManager extends ControllerManager {
         super();
     }
 
+    public WallController get(int i) {
+        return (WallController)singleControllers.get(i);
+    }
+
     public static final WallControllerManager instance = new WallControllerManager();
 }

@@ -19,6 +19,7 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
         super(column,row);
         unitName = "mummy";
         moveDirections = 4;
+        defaultMaxMoveStep = 2;
         maxMoveStep = 2;
         gameObject.setPowerLevel(2);
         gameObject.setHealth(2);
@@ -30,6 +31,7 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
 
     public void init() {
         moveStep = maxMoveStep;
+        firstTime = true;
     }
 
     //**********  COLLISION *********************************************************************
@@ -94,8 +96,15 @@ public class EnemyControllerWhite extends EnemyController implements Colliable {
         if (isMoving) {
             moveAnimation(); return;}
         if (PlayGameScreen.playerTurn) return;
+
+        if (firstTime) {
+            moveStep = maxMoveStep;
+            firstTime = false;
+            addState(currentStateWithEffect());
+        }
+
         if (moveStep > 0) {
-            if (moveStep==maxMoveStep) addCurrentState();
+            checkEffect();
             moveStep--;
             move(gameObject);
         }

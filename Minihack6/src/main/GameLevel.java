@@ -1,6 +1,7 @@
 package main;
 
 import controllers.*;
+import controllers.traps.*;
 import main.gameScreens.PlayGameScreen;
 import models.Player;
 import utilities.Utils;
@@ -23,6 +24,9 @@ public class GameLevel {
     protected boolean[][] wallRight;
     protected Image[][] backgroundTile;
     protected EnemyController[] mummyControllers = new EnemyController[20];
+    protected TrapController[] trapControllers = new TrapController[20];
+    public BlackWallController myBlackWall = new BlackWallController(0,0,WallType.DOWN);
+
     public static final int[] dx = {0,0,0,1,-1,-1,1,-1,1};
     public static final int[] dy = {0,1,-1,0,0,-1,-1,1,1};
 
@@ -48,6 +52,11 @@ public class GameLevel {
         PlayerController.instance.undo();
         for (int i = 1; i <= numberOfEnemy; i++) {
             mummyControllers[i].undo();
+        }
+
+        for (int i=0;i<WallControllerManager.instance.size();i++) {
+            WallController myWall = WallControllerManager.instance.get(i);
+            if (myWall instanceof BlackWallController) myWall.undo();
         }
     }
     private void levelSetting() {
@@ -146,6 +155,43 @@ public class GameLevel {
         }
     }
 
+    public void createTrap() {
+        int n, x, y;
+        String type;
+
+        n = input.nextInt();
+        for (int i=1;i<=n;i++) {
+            x = input.nextInt();
+            y = input.nextInt();
+            type = input.next();
+
+            if (TrapType.valueOf(type)==TrapType.SLOW_ENEMY) {
+                trapControllers[i] = TrapControllerSlowEnemy.create(x,y);
+            }
+        }
+
+        for (int i=1;i<=n;i++) {
+            TrapController trap = trapControllers[i];
+            trap.setColumn(trap.getColumn());
+            trap.setRow(trap.getRow());
+            TrapControllerManager.instance.add(trap);
+        }
+    }
+
+    public void createKey() {
+        int n, x, y, wallX, wallY;
+        String type;
+        n = input.nextInt();
+        x = input.nextInt();
+        y = input.nextInt();
+        wallX = input.nextInt();
+        wallY = input.nextInt();
+        type = input.next();
+
+        TrapController key = new KeyController(x,y,wallX,wallY,WallType.valueOf(type));
+        TrapControllerManager.instance.add(key);
+    }
+
     public void createLevel(int level) {
         ControllerController.instance.init();
         try {
@@ -161,6 +207,8 @@ public class GameLevel {
         createWallDown();
         createWallRight();
         createMummy();
+        createTrap();
+        createKey();
     }
 
 

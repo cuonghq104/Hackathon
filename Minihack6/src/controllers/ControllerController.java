@@ -1,5 +1,8 @@
 package controllers;
 
+import controllers.traps.TrapController;
+import controllers.traps.TrapControllerManager;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
@@ -23,19 +26,18 @@ public class ControllerController {
     }
 
     public synchronized void draw(Graphics g) {
-//        BufferedImage map = new BufferedImage(360,360,BufferedImage.TYPE_INT_RGB);
-//        Graphics mapGraphics = map.getGraphics();
         PlayerController.instance.draw(g);
-        EnemyControllerManager.instance.draw(g);
         WallControllerManager.instance.draw(g);
-        //g.drawImage(map,60,60,360,360,null);
+        TrapControllerManager.instance.draw(g);
+        EnemyControllerManager.instance.draw(g);
     }
 
     public synchronized void run() {
-        PlayerController.instance.run();
-        EnemyControllerManager.instance.run();
-        CollisionManager.instance.run();
         WallControllerManager.instance.run();
+        TrapControllerManager.instance.run();
+        PlayerController.instance.run();
+        CollisionManager.instance.run();
+        EnemyControllerManager.instance.run();
     }
 
     public static final ControllerController instance = new ControllerController();

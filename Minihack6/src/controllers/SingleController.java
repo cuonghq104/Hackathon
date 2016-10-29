@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.movement.MoveType;
+import javafx.scene.effect.Effect;
 import models.GameObject;
 import views.GameView;
 
@@ -131,6 +132,10 @@ public class SingleController implements BaseController {
         backState.push(new UnitState(this));
     }
 
+    public void addState(UnitState state) {
+        backState.push(state);
+    }
+
     public void undo() {
         if (backState.size()==0) return;
         UnitState previousState = backState.pop();
@@ -138,6 +143,11 @@ public class SingleController implements BaseController {
         this.setRow(previousState.row);
         this.setHealth(previousState.health);
         this.setIsAlive(previousState.isAlive);
+
+        if (this instanceof Effectable) {
+            ((Effectable)this).setMaxMoveStep(previousState.maxMoveStep);
+            ((Effectable)this).setSlowDuration(previousState.slowDuration);
+        }
     }
 
 }

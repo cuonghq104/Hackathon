@@ -9,6 +9,8 @@ public class UnitState {
     public int column, row;
     public int health;
     public boolean isAlive;
+    public int slowDuration = 0;
+    public int maxMoveStep = 0;
 
     public UnitState(int column,int row, int health,boolean isAlive) {
         this.column = column;
@@ -16,6 +18,16 @@ public class UnitState {
         this.health = health;
         this.isAlive = isAlive;
     }
+
+    public UnitState(int column,int row, int health,boolean isAlive,int slowDuration,int maxMoveStep) {
+        this.column = column;
+        this.row = row;
+        this.health = health;
+        this.isAlive = isAlive;
+        this.slowDuration = slowDuration;
+        this.maxMoveStep = maxMoveStep;
+    }
+
 
     public UnitState(SingleController sc) {
         this.column = sc.getColumn();
